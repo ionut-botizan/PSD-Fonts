@@ -70,6 +70,10 @@ try {
 		// PS scripting doesn't have `setTimeout()` & `clearTimeout()`
 		(Date.now() > startTime + 1000) && !searching && _longOp();
 		
+		if (!keepSearching) {
+			throw 'canceled';
+		}
+		
 		try {
 			findFonts(i);
 		} catch(e) {
